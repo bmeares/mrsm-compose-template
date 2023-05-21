@@ -6,8 +6,8 @@ services:
       context: "./"
       dockerfile: "./docker/Dockerfile"
 
-    ### Override the `/docker/bootstrap.sh` entrypoint for testing.
-    entrypoint: ["/bin/bash"]
+    ### Override the `bootstrap.sh` entrypoint for interactive development and testing.
+    entrypoint: ["/app/docker/sleep_forever.sh"]
 
     environment:
 
