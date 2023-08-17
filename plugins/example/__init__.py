@@ -41,6 +41,6 @@ def fetch(
     Return a list of dictionaries.
     May also return a Pandas DataFrame, list of dictionaries, or generator (yield chunks).
     """
-    docs = []
+    docs = [{'id': 1, 'timestamp': '2023-01-01'}]
 
     return docs

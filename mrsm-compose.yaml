@@ -1,6 +1,8 @@
-### This is for re-using the existing Docker root.
-### Omit to create a local dir (defaults to ./root).
+### Comment these out if not running in Docker.
 root_dir: "/meerschaum"
+plugins_dir:
+  - "/meerschaum/plugins"
+  - "/app/plugins"
 
 ### All pipes are tagged with the project name
 ### (defaults to directory name).
@@ -13,16 +15,33 @@ sync:
     - connector: "plugin:example"
       metric: "foo"
       location: "bar"
-      parameters:
+      columns:
         datetime: "timestamp"
         id: "id"
 
     - connector: "example:secret"
       metric: "foo"
       location: "bar"
-      parameters:
+      columns:
         datetime: "timestamp"
         id: "id"
+
+    - connector: "plugin:clone"
+      metric: "foo"
+      parameters:
+        sources:
+          - pipe:
+              connector: "plugin:example"
+              metric: "foo"
+              location: "bar"
+          - pipe:
+              connector: "example:secret"
+              metric: "foo"
+              location: "bar"
+
+### You may list external plugins to be installed.
+plugins:
+  - "clone"
 
 ### Define the MRSM_CONFIG for this isolated project.
 config:

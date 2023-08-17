@@ -41,7 +41,7 @@ class ExampleConnector(Connector):
         - Dictionary of lists
         - Generator of the above (yield chunks)
         """
-        docs = []
+        docs = [{'id': 2, 'timestamp': '2023-01-01'}]
 
         ### The required connector attributes are stored in `self.__dict__`.
         creds = {
