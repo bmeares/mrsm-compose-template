@@ -6,42 +6,39 @@ plugins_dir:
 
 ### All pipes are tagged with the project name
 ### (defaults to directory name).
-project_name: "example-project"
+project_name: null
 
-### 1. Module-level `fetch()` (plugin:example)
-### 2. Custom connector `fetch()` (example:secret)
-sync:
-  pipes:
-    - connector: "plugin:example"
-      metric: "foo"
-      location: "bar"
-      columns:
-        datetime: "timestamp"
-        id: "id"
+pipes:
+  - connector: "plugin:example"
+    metric: "foo"
+    location: "bar"
+    columns:
+      datetime: "timestamp"
+      id: "id"
 
-    - connector: "example:secret"
-      metric: "foo"
-      location: "bar"
-      columns:
-        datetime: "timestamp"
-        id: "id"
+  - connector: "example:secret"
+    metric: "foo"
+    location: "bar"
+    columns:
+      datetime: "timestamp"
+      id: "id"
 
-    - connector: "plugin:clone"
-      metric: "foo"
-      parameters:
-        sources:
-          - pipe:
-              connector: "plugin:example"
-              metric: "foo"
-              location: "bar"
-          - pipe:
-              connector: "example:secret"
-              metric: "foo"
-              location: "bar"
+  - connector: "plugin:clone"
+    metric: "foo"
+    parameters:
+      sources:
+        - pipe:
+            connector: "plugin:example"
+            metric: "foo"
+            location: "bar"
+        - pipe:
+            connector: "example:secret"
+            metric: "foo"
+            location: "bar"
 
 ### You may list external plugins to be installed.
 plugins:
-  - "clone"
+  - "clone@api:mrsm"
 
 ### Define the MRSM_CONFIG for this isolated project.
 config:
