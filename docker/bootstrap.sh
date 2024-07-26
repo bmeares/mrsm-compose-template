@@ -1,3 +1,3 @@
 #! /bin/bash
 
-mrsm compose run
+mrsm compose up

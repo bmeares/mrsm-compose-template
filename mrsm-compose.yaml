@@ -1,12 +1,15 @@
-### Comment these out if not running in Docker.
-root_dir: "/meerschaum"
-plugins_dir:
-  - "/meerschaum/plugins"
-  - "/app/plugins"
+### You may find it useful to enable these settings when running in Docker.
+# root_dir: "/meerschaum"
+# plugins_dir:
+  # - "/meerschaum/plugins"
+  # - "/app/plugins"
 
 ### All pipes are tagged with the project name
 ### (defaults to directory name).
-project_name: null
+project_name: "app"
+
+sync:
+  schedule: "every 30 seconds"
 
 pipes:
   - connector: "plugin:example"
