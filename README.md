@@ -72,9 +72,9 @@ import meerschaum as mrsm
 from meerschaum.utils.typing import List, Dict, Any
 
 def fetch(
-        pipe: mrsm.Pipe,
-        **kwargs: Any
-    ) -> List[Dict[str, Any]]:
+    pipe: mrsm.Pipe,
+    **kwargs: Any
+) -> List[Dict[str, Any]]:
     """
     Return any of the following:
 
@@ -108,11 +108,11 @@ from meerschaum.utils.misc import round_time
 required = ['python-dateutil']
 
 def sync(
-        pipe: mrsm.Pipe,
-        begin: Optional[datetime] = None,
-        end: Optional[datetime] = None,
-        **kwargs: Any
-    ) -> SuccessTuple:
+    pipe: mrsm.Pipe,
+    begin: Optional[datetime] = None,
+    end: Optional[datetime] = None,
+    **kwargs: Any
+) -> SuccessTuple:
     """
     Custom syncing strategy: resync days with different rowcounts.
     """
@@ -143,18 +143,18 @@ def sync(
 
 
 def get_remote_rowcount(
-        pipe: mrsm.Pipe,
-        begin: datetime,
-        end: datetime,
-    ) -> int:
+    pipe: mrsm.Pipe,
+    begin: datetime,
+    end: datetime,
+) -> int:
     ...
 
 
 def fetch(
-        pipe: mrsm.Pipe,
-        begin: datetime,
-        end: datetime,
-    ) -> List[Dict[str, Any]]:
+    pipe: mrsm.Pipe,
+    begin: datetime,
+    end: datetime,
+) -> List[Dict[str, Any]]:
     ...
 ```
 
